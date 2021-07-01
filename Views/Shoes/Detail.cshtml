@@ -1,0 +1,112 @@
+﻿
+@model ShoeShopWebApp.Models.Review
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/site.css" type="text/css" />
+    <script src="~/js/site.js" type="text/javascript"></script>
+</head>
+<body>
+    <h1>Детайли за продукта</h1>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Edit" asp-route-id="@ViewBag.shoe.Id">Редактирай</a>
+
+            <a asp-action="Delete" asp-route-id="@ViewBag.shoe.Id">Изтрий</a>
+        }
+    }
+
+    <div class="product-template">
+
+        <img src="~/Images/@ViewBag.shoe.Photo" />
+
+        <div class="individual-info">
+            <h1>@ViewBag.shoe.Model</h1>
+            <p>Цена: @ViewBag.shoe.Price лв.</p>
+            <form>
+                <select class="dropdown">
+                    <option selected disabled hidden>Изберете размер:</option>
+                    <option>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+                </select>
+            </form>
+
+            <a class="btn btn-primary btn-lg active" role="button" onlick="addToCartMsg()" asp-controller="Cart" asp-action="Buy" asp-route-id="@ViewBag.shoe.Id">Добави в количката</a>
+            <p>Описание:</p>
+            <article> &emsp; @ViewBag.shoe.Description</article>
+        </div>
+
+        <h3>Ревюта и отзиви (@ViewBag.shoe.Reviews.Count):</h3>
+        @if (@ViewBag.shoe.Reviews.Count == 0)
+        {
+            <h2>Все още няма коментари за този продукт. :(</h2>
+        }
+        else
+        {
+            <div class="review-section">
+                @foreach (var review in ViewBag.shoe.Reviews)
+                {
+                    <h4>@review.UserName :</h4>
+                    <div class="review">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.Identity.Name == review.UserName || User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Delete" asp-controller="Reviews" asp-route-id="@review.Id">Изтрий</a>
+                            }
+                        }
+                        <span>@review.PostDate</span>
+                        <br />
+                        <h5>Ревю:</h5>
+                        @for (int i = 0; i < review.Rating; i++)
+                        {
+                            <label class="rated-star">★</label>
+                        }
+
+                        <p>@review.Comment</p>
+                    </div>
+                }
+            </div>
+        }
+        <br />
+        <div class="setreview">
+            <h3>Добавете ревю:</h3>
+            @using (Html.BeginForm("SetReview", "Shoes"))
+            {
+                @Html.HiddenFor(model => model.ShoeId)
+                <div class="rating">
+                    @for (int i = 5; i > 0; i--)
+                    {
+                        <input type="radio" name="rating" value="@i" id="@i"><label for="@i">☆</label>
+                    }
+                </div>
+                <br />
+                <br />
+                <h5>Ревю:</h5>
+                <textarea id="Comment" name="Comment" placeholder="Въведете коментар"></textarea>
+                <br />
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <input class="btn btn-success send btn-sm" type="submit" value="Изпрати" />
+                }
+                else
+                {
+                    <a asp-area="Identity" asp-page="/Account/Login">Влезте за да добавите ревю</a>
+                }
+            }
+        </div>
+    </div>
+</body>
+
+<br />
+
+<div>
+    <a asp-action="Index">Обратно към магазина</a> |
+
+</div>

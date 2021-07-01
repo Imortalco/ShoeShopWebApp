@@ -1,0 +1,445 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+@charset "UTF-8";
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: black;
+}
+
+navbar-nav {
+    background-color:black;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.btn.btn-primary.btn-block.active {
+    border: solid;
+    border-color: black;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Arial';
+}
+
+.btn.btn-primary.btn-lg.active {
+    border: solid;
+    border-color: black;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Arial';
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Products*/
+
+
+.card-columns {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-columns .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 250px;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    font-family: Arial;
+}
+
+.card-columns .card .card-img {
+    overflow: hidden;
+}
+
+.card-columns .card .card-img img {
+    max-width: 100%;
+    transition: transform .5s ease;
+}
+
+.card-columns .card .card-img img:hover {
+    transform: scale(1.2);
+    opacity: 0.7;
+}
+
+.price {
+   color: grey;
+   font-size: 22px;
+}
+
+ .card button:hover {
+    transform:scale(1.2);
+    opacity: 0.7;
+ }
+
+ /*Individual product page */
+.product-template {
+    margin-top:100px;
+}
+.product-template h3 {
+    font-family: Arial;
+    font-size: 30px;
+}
+
+.product-template h5 {
+    font-family: Arial;
+    font-size: 20px;
+    color: dimgray;
+}
+
+.product-template img {
+    position: relative;
+    float: left;
+    border: solid;
+    height: 500px;
+    width: 500px;
+    bottom: 50px;
+}
+
+.product-template button {
+    border: solid;
+    border-color: black;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Arial';
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+ .product-template button:hover {
+    transform: scale(1.2);
+    opacity: 0.7;
+ }
+
+.product-template textarea {
+    resize: none;
+    width: 500px;
+    height: 200px;
+}
+
+ .dropdown {
+     margin-bottom: 20px;
+     width: 200px;
+     height: 30px;
+     font-family: Arial;
+ }
+
+ .individual-info {
+     position: relative;
+     left: 200px;
+     margin-bottom: 200px;
+ }
+
+.individual-info h1 {
+    font-family: Arial;
+}
+
+.individual-info article{
+    width:90%;
+}
+/*Rating and review*/
+.review-section {
+    /*top: 200px;*/
+    background-color: whitesmoke;
+    border-width: 5px;
+    border-style: outset;
+    width: 80%;
+}
+.review-section h4 {
+   color: black;
+   margin-left:20px;
+   margin-top:20px;
+}
+
+.review {
+    margin-top:10px;
+    margin-left: 70px;
+    margin-bottom:20px;
+    border: 1px solid rgba(16, 46, 46, 1);
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+    width: 70%;
+}
+.review h4,span{
+    color:dimgray;
+    display:inline;
+}
+
+.review p {
+    color: black;
+}
+.review h5 {
+    font-family: Arial;
+    font-size: 20px;
+    color: black;
+}
+
+.review a {
+    float:right;
+    color:red;
+    text-decoration:underline;
+}
+
+.review button {
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.setreview {
+    background-color: whitesmoke;
+    border-width: 5px;
+    border-style: groove;
+    width: 80%;
+    height:400px;
+}
+
+.setreview textarea{
+    width:90%;
+}
+
+.btn.btn-success.send.btn-sm {
+    float: left;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    float: left;
+    margin-bottom: -50px;
+    margin-top: -20px;
+}
+
+.rating input{
+    display: none;
+}
+
+.rating > label {
+    position: relative;
+    width: 40px;
+    font-size: 50px;
+    color: orange;
+    cursor: pointer;
+}
+
+.rating > label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+}
+
+ .rating > label:hover:before,
+ .rating > label:hover ~ label:before {
+    opacity: 0.5 !important;
+    color: yellow;
+ }
+
+ .rating > input:checked ~ label:before {
+     opacity: 0.5;
+     color: yellow;
+ }
+
+.rating:hover > input:checked ~ label:before {
+    opacity: 0.7;
+}
+
+.rated-star {
+    width: 10px;
+    font-size: 20px;
+    color: orange;
+}
+/*Home page slider*/
+
+
+.slider {
+    width: 1200px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slides {
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+ }
+
+.slide {
+    width: 20%;
+    transition: 2s;
+}
+
+ .slide img {
+    width: 1200px;
+    height: 500px;
+}
+
+.navigation-manual {
+    position: absolute;
+    width: 1200px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+ .manual-btn:not(:last-child) {
+     margin-right: 40px;
+ }
+
+ .manual-btn:hover {
+     background: black;
+ }
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 1200px;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+.navigation-auto div {
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    transition:1s;
+}
+
+.navigation-auto div:not(:last-child) {
+     margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background: black;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background: black;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background: black;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    background: black;
+}
+
+#quantity{
+    width:50px;
+}
+
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}

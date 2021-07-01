@@ -1,0 +1,18 @@
+﻿@model IEnumerable<ShoeShopWebApp.Models.Review>
+
+@{
+    ViewBag.Title = "Review List";
+}
+
+<h1>Review List</h1>
+
+@foreach (Review review in Model)
+{
+<div class="reviewList">
+    <h4>Username:@review.UserName          Date:@review.PostDate</h4>
+    <h4>Rating:@review.Rating out of 5.</h4>
+    <h4>Review:</h4>
+    <textarea class="comment">@review.Comment</textarea>
+</div>
+    <div></div>
+}

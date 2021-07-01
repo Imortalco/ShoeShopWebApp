@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ShoeShopWebApp.Models.Shoe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" href="~/css/site.css" type="text/css">
+</head>
+<body>
+    <h1>Модели</h1>
+    <p>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Create">Създай нов продукт</a>
+            }
+        }
+    </p>
+    <br />
+        <div class="card-columns">
+
+            @foreach (var shoe in Model)
+            {
+                <div class="card">
+                    <a asp-action="Detail" asp-route-id="@shoe.Id">
+                        <div class="card-img">
+                            <img src="~/Images/@shoe.Photo" />
+                        </div>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@shoe.Model</h5>
+                        <p class="price">@shoe.Price лв.</p>
+                        <a class="btn btn-primary btn-block active" role="button" asp-controller="Cart" asp-action="BuyFromIndex" asp-route-id="@shoe.Id">Добави в количката</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </body>

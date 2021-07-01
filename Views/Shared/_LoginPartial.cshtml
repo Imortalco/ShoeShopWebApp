@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" href="~/css/site.css" type="text/css">
+</head>
+<body>
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Здравейте, @User.Identity.Name!</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-light">Излез</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-controller="Cart" asp-action="Index"><img src="~/Images/black-bag.png" width="30" height="30" /></a>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Нов потребител</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Влез</a>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-controller="Cart" asp-action="Index"><img src="~/Images/black-bag.png" width="30" height="30" /></a>
+            </li>
+        }
+    </ul>
+ </body>
